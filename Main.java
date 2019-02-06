@@ -1,14 +1,16 @@
 
 /**
- * Write a description of class Main here.
+ * I develop a number guess game
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Yang Shu)
+ * @version (Fer.05,2019)
  */
+import java.util.Scanner; 
+import java.util.Random;
 public class Main
 {
     // instance variables - replace the example below with your own
-    private int x;
+    
 
     /**
      * Constructor for objects of class Main
@@ -16,18 +18,76 @@ public class Main
     public Main()
     {
         // initialise instance variables
-        x = 0;
-    }
+      
+        int mysteryNumber;
+           mysteryNumber = (int) (Math.random() * 9 + 1);// set the range from 1 to 10;
+           
+           Scanner keyboard = new Scanner(System.in);
+        /*initialise instance variables*/
+            int guess = 0;
+            int count = 0;
+            int previous_guess;
+           
+            System.out.println("I am thinking of a number from 1 to 10 ... guess what it is ?");
+            //System.out.println("the answer is " + mysteryNumber);//delete it later
+            /* Apply do-while here.
+             * In do part, I will put all codes related with fall guess condition because most program requirements and parameter change are 
+             * relative to the fall guess condition. 
+             * It will be more clear  */
+        do{
+           
+            previous_guess = guess;
+            
+            System.out.print("Enter a guess: ");
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
-}
+            guess = keyboard.nextInt();
+            
+           
+
+            System.out.println("Your guess is " + guess);
+            
+             if ( count == 0) {
+                   count= count +1;
+                } 
+                else if (previous_guess == guess){
+                    count = count; 
+                }
+                else {
+                    count = count +1;
+                }
+                    
+
+             
+           if (guess < mysteryNumber ){
+
+                  System.out.println("Your guess is too smaller and you have guess " + count + " times.");
+                }
+           else if (guess > mysteryNumber ){
+
+                  System.out.println("Your guess is too greater and you have guess " + count + " times.");
+                  
+                }
+           
+          /* if ( count == 0) {
+                   count= count +1;
+                } 
+                else if (previous_guess == guess){
+                    count = count; 
+                }
+                else {
+                    count = count +1;
+                }*/
+                    
+              // count = (previous_guess == guess) ? count: (count +1); // simple way to express if else condition.
+            
+      }  while (guess != mysteryNumber);
+         
+          if (guess == mysteryNumber){
+
+                  System.out.println("Your guess is correct. Congratulations!");
+
+                }//no much work need to be here.
+
+}}
+        
+  
