@@ -23,7 +23,8 @@ public class Main
            mysteryNumber = (int) (Math.random() * 9 + 1);// set the range from 1 to 10;
            
            Scanner keyboard = new Scanner(System.in);
-        /*initialise instance variables*/
+        
+           /*initialise instance variables*/
             int guess = 0;
             int count = 0;
             int previous_guess;
